@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nano Biomaterial Lab – Dr. Arun Kumar, CUSB</title>
+<style>
+:root{
+  color-scheme:light;
+  --navy:#0a3a8a; --bar:#0b57b7; --ink:#4a4a4a; --line:#d6d6d6;
+  --font:Verdana,'Segoe UI',Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:#ececec;color:var(--ink);font:400 .86rem/1.55 var(--font);overflow-x:hidden}
+a{color:var(--navy)}
+:focus-visible{outline:2px solid #f08a00;outline-offset:2px}
+.page{max-width:960px;margin:0 auto;background:#fff;min-height:100vh}
+
+/* header banner */
+.banner{display:grid;grid-template-columns:27% 1fr 22%;background:#000;min-height:128px}
+.logo{background:#fff;padding:10px 12px;display:flex;flex-direction:column;justify-content:center}
+.logo b{font:800 clamp(2rem,7vw,3.4rem)/1 Arial,sans-serif;color:var(--navy);letter-spacing:-.02em}
+.logo span{font-size:clamp(.55rem,1.8vw,.8rem);color:var(--navy);font-weight:600;line-height:1.25;margin-top:4px}
+.mid{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:6px 6px 10px;overflow:hidden}
+.mid .big{font:800 clamp(2.4rem,9vw,4.6rem)/1 Arial,sans-serif;letter-spacing:.06em;background:linear-gradient(#cfcfcf,#6d6d6d);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.mid .t{color:#fff;font:700 clamp(.8rem,2.6vw,1.2rem) Arial,sans-serif}
+.mark{display:flex;align-items:center;justify-content:center;color:#fff;font:600 .72rem Arial,sans-serif;gap:4px}
+.mark svg{width:58%;max-width:110px;height:auto}
+
+nav{background:var(--bar);display:flex;flex-wrap:wrap;justify-content:space-around;padding:0 6px}
+nav a{color:#fff;text-decoration:none;text-transform:uppercase;font-size:clamp(.58rem,1.9vw,.76rem);padding:11px 6px;letter-spacing:.02em}
+nav a:hover{text-decoration:underline}
+nav a[aria-current="page"]{background:#08408a;font-weight:700}
+
+.body{display:grid;grid-template-columns:27% 1fr;gap:20px;padding:20px 22px 40px 12px}
+.side{padding-left:4px}
+.side .u{font:800 2.1rem/1 Arial,sans-serif;color:var(--navy);letter-spacing:-.02em}
+.side .u small{display:block;font-size:.62rem;font-weight:600;line-height:1.25;margin-top:4px}
+.main{min-width:0}
+@media (max-width:640px){
+  .body{grid-template-columns:1fr;padding:16px 16px 36px}
+  .side{display:none}
+  .banner{grid-template-columns:34% 1fr 0}
+  .mark{display:none}
+}
+
+.view{display:none}.view.on{display:block}
+h1,h2{font:700 1.2rem/1.3 Arial,sans-serif;color:var(--navy);margin:0 0 10px}
+h3{font:700 1rem/1.3 Arial,sans-serif;color:var(--navy);margin:22px 0 8px}
+p{margin:0 0 12px;text-align:justify}
+ul.plain{padding-left:20px;margin:0 0 14px}
+ul.plain li{margin-bottom:6px}
+
+.photo{width:100%;max-width:600px;aspect-ratio:16/10;margin:14px 0;background:linear-gradient(135deg,#0b3270,#1a73c8 55%,#9cc7ef);display:flex;align-items:flex-end;color:#fff;font:600 .8rem Arial,sans-serif;padding:12px}
+.cap{font:700 1.05rem Arial,sans-serif;text-align:center;margin:22px 0 10px;color:#222}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:600px}
+.grid div{aspect-ratio:3/4;background:linear-gradient(160deg,#cfd9ea,#8fa9cf);display:flex;align-items:flex-end;padding:6px;font-size:.62rem;color:#18306a;font-weight:600}
+.grid div:nth-child(3n){background:linear-gradient(160deg,#dfe7f4,#a7bbd9)}
+
+.hl{padding:16px 0;border-bottom:1px solid var(--line)}
+.hl a{font:700 1rem/1.35 Arial,sans-serif;display:block;margin-bottom:6px}
+.hl i{color:#222}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.person{border:1px solid var(--line);padding:12px}
+.person .ph{aspect-ratio:1;background:linear-gradient(160deg,#cfd9ea,#8fa9cf);margin-bottom:10px;display:flex;align-items:center;justify-content:center;font:700 1.6rem Arial,sans-serif;color:#18306a}
+.person b{display:block;color:var(--navy);font-family:Arial,sans-serif}
+.person em{display:block;font-style:normal;color:#b25400;font-weight:700;font-size:.78rem;margin:2px 0 6px}
+.person p{font-size:.8rem;margin:0;text-align:left}
+.note{border:1px dashed #aaa;padding:10px 12px;font-size:.78rem;margin-top:16px;background:#fafafa}
+address{font-style:normal;margin-bottom:12px}
+footer{border-top:1px solid var(--line);padding:14px 22px 26px;font-size:.72rem;color:#777;text-align:center}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="banner">
+    <div class="logo"><b>CUSB</b><span>Central University<br>of South Bihar</span></div>
+    <div class="mid"><div class="big">NBL</div><div class="t">Nano Biomaterial Lab</div></div>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2"><polygon points="50,6 90,28 90,72 50,94 10,72 10,28"/><polyline points="30,62 50,30 70,62"/><line x1="30" y1="62" x2="70" y2="62"/></svg>
+    </div>
+  </div>
+  <nav id="nav" aria-label="Main">
+    <a href="#home" data-v="home">Home</a>
+    <a href="#people" data-v="people">People</a>
+    <a href="#research" data-v="research">Research</a>
+    <a href="#publications" data-v="publications">Publications</a>
+    <a href="#laboratory" data-v="laboratory">Laboratory</a>
+    <a href="#join" data-v="join">Join NBL</a>
+    <a href="#contact" data-v="contact">Contact Us</a>
+  </nav>
+</header>
+
+<div class="body">
+  <aside class="side" aria-hidden="true"><div class="u">CUSB<small>Central University<br>of South Bihar</small></div></aside>
+  <main class="main">
+
+  <section class="view" id="v-home">
+    <h1>Welcome to Nano Biomaterial Lab!!!</h1>
+    <p>We are a group of researchers who formulate nanomaterials and biomaterials for biomedical and tissue engineering applications, aiming to translate nanotechnology into new diagnostic and therapeutic solutions.</p>
+    <h3>Dr. Arun Kumar, Department of Pharmacy</h3>
+    <p><a href="#people">Meet the principal investigator and the NBL team</a></p>
+    <div class="photo" role="img" aria-label="Photo placeholder">Photo of Dr. Arun Kumar in the lab (to be added)</div>
+
+    <div class="cap">NBL Lab Moments</div>
+    <div class="grid" aria-label="Photo placeholders">
+      <div>Photo</div><div>Photo</div><div>Photo</div><div>Photo</div>
+      <div>Photo</div><div>Photo</div><div>Photo</div><div>Photo</div>
+    </div>
+
+    <h3>Research Highlights:</h3>
+    <article class="hl"><a href="#publications">2022: Nucleic acid-based therapeutics for dermal wounds healing</a>Preety Sharma, Arun Kumar* et al. <i>International Journal of Biological Macromolecules, 2022</i></article>
+    <article class="hl"><a href="#publications">2022: Oxygenation therapies for improved wound healing: Current trends and technologies</a>Garima Malik, Tarun Agarwal, Marco Costantini, Sampriti Pal, Arun Kumar*. <i>Journal of Materials Chemistry B, 2022</i></article>
+    <article class="hl"><a href="#publications">2022: Dendrimers as nanoscale vectors: Unlocking the bars of cancer therapy</a>Asmita Deka Dey et al., Arun Kumar*, Pooyan Makvandi. <i>Seminars in Cancer Biology, 2022</i></article>
+  </section>
+
+  <section class="view" id="v-people">
+    <h2>People</h2>
+    <p>Dedication. Expertise. Passion. NBL is a collaborative team of academicians, scientists, clinicians and industry personnel.</p>
+    <h3>Principal Investigator</h3>
+    <div class="people"><div class="person"><div class="ph">AK</div><b>Dr. Arun Kumar</b><em>Ph.D., Department of Pharmacy</em><p>Leads the Nano Biomaterial Lab at the Central University of South Bihar.</p></div></div>
+    <h3>Current Members</h3>
+    <div class="people">
+      <div class="person"><div class="ph">PS</div><b>Preety Sharma</b><em>Ph.D. Scholar</em><p>Biomaterials for wound healing applications.</p></div>
+      <div class="person"><div class="ph">TK</div><b>Tarun Kalia</b><em>Ph.D. Scholar</em><p>Electron beam technology based hydrogel dressings for diabetic ulcers.</p></div>
+      <div class="person"><div class="ph">NT</div><b>Nitin Thakur</b><em>Ph.D. Scholar, Joint CSIR-UGC NET JRF</em><p>Nanomaterials for cancer therapy.</p></div>
+    </div>
+    <h3>Alumni</h3>
+    <div class="people">
+      <div class="person"><div class="ph">SS</div><b>Saurav Sharma</b><em>Former graduate researcher</em><p>Metallic nano-composite hydrogels for antimicrobial therapy. Now Patent Research Analyst at Signicent Information Solutions.</p></div>
+      <div class="person"><div class="ph">AD</div><b>Asmita Deka Dey</b><em>Former undergraduate student</em><p>Nucleic acid, EVs, microneedles and hydrogels for drug delivery. Now Business Research Analyst at Root Analysis.</p></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-research">
+    <h2>Research</h2>
+    <p>We develop and characterise nanomaterials and biomaterials for biomedical and tissue engineering applications. Our interests include the synthesis and modification of nanoparticles, the development of drug delivery systems and the engineering of scaffolds for tissue regeneration. We also investigate how these materials interact with cells and tissues, and use the findings to develop new diagnostic and therapeutic strategies.</p>
+    <h3>Focus areas</h3>
+    <ul class="plain"><li>Wound healing</li><li>Cancer therapy</li><li>Hydrogels</li><li>Drug delivery</li><li>Tissue engineering</li><li>Antimicrobial therapy</li><li>Formulation and development, polymer technology</li></ul>
+  </section>
+
+  <section class="view" id="v-publications">
+    <h2>Publications</h2>
+    <article class="hl"><a href="#publications">Nucleic acid-based therapeutics for dermal wounds healing</a>Preety Sharma, Arun Kumar*, Tarun Agarwal, Asmita Deka Dey, Farnaz Dabbagh Moghaddam, Illnaz Rahimmanesh, Mahsa Ghovvati, Satar Yousefiasl, Assunta Borzacchiello, Abbas Mohammadi, Venkata Rajesh Yella, Omid Moradi, Esmaeel Sharifi. <i>International Journal of Biological Macromolecules, 2022</i></article>
+    <article class="hl"><a href="#publications">Oxygenation therapies for improved wound healing: Current trends and technologies</a>Garima Malik, Tarun Agarwal, Marco Costantini, Sampriti Pal, Arun Kumar*. <i>Journal of Materials Chemistry B, 2022</i></article>
+    <article class="hl"><a href="#publications">Dendrimers as nanoscale vectors: Unlocking the bars of cancer therapy</a>Asmita Deka Dey, Ashkan Bigham, Yasaman Esmaeili, Milad Ashrafizadeh, Farnaz Dabbagh Moghaddam, Shing Cheng Tan, Satar Yousefiasl, Saurav Sharma, Ana Cláudia Paiva-Santos, Aziz Maleki, Navid Rabiee, Alan Prem Kumar, Vijay Kumar Thakur, Gorka Orive, Esmaeel Sharifi, Arun Kumar*, Pooyan Makvandi. <i>Seminars in Cancer Biology, 2022</i></article>
+    <p style="margin-top:16px">Full list: <a href="https://scholar.google.com/citations?user=5jgSMccAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://www.scopus.com/authid/detail.uri?authorId=57202998781" target="_blank" rel="noopener">Scopus</a> · <a href="https://www.researchgate.net/profile/Arun-Kumar-46" target="_blank" rel="noopener">ResearchGate</a></p>
+  </section>
+
+  <section class="view" id="v-laboratory">
+    <h2>Laboratory</h2>
+    <p>The lab has state-of-the-art facilities and equipment for cutting-edge research in nanobiomaterials.</p>
+    <div class="photo" role="img" aria-label="Photo placeholder">Lab photo (to be added)</div>
+    <div class="note">Demo version: the list of instruments and lab photos will be added once received.</div>
+  </section>
+
+  <section class="view" id="v-join">
+    <h2>Join NBL</h2>
+    <p>We welcome motivated students and researchers interested in nanobiomaterials. Openings, eligibility and the application process will be listed here. For now, please write to the email on the Contact page with your CV and a short note on your interests.</p>
+  </section>
+
+  <section class="view" id="v-contact">
+    <h2>Contact Us</h2>
+    <address><b>Dr. Arun Kumar</b><br>Department of Pharmacy, School of Health Science<br>Central University of South Bihar<br>SH-7, Gaya Panchanpur Road, Village Karhara, Post Fatehpur<br>Bihar 824236, India</address>
+    <p>Email: <a href="mailto:arun23@cusb.ac.in">arun23@cusb.ac.in</a> · <a href="mailto:arundhiman431@gmail.com">arundhiman431@gmail.com</a><br>Phone: +91 83601 84799 · +91 94180 73141</p>
+    <p><a href="https://www.linkedin.com/in/dr-arun-kumar-ph-d-80310996/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=5jgSMccAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://www.researchgate.net/profile/Arun-Kumar-46" target="_blank" rel="noopener">ResearchGate</a></p>
+  </section>
+
+  </main>
+</div>
+
+<footer>© <span id="yr">2026</span> Central University of South Bihar. Nano Biomaterial Lab. Demo version.</footer>
+</div>
+
+<script>
+(function(){
+  var names=['home','people','research','publications','laboratory','join','contact'];
+  function show(){
+    var h=(location.hash||'').replace('#','');
+    if(names.indexOf(h)<0)h='home';
+    names.forEach(function(n){document.getElementById('v-'+n).classList.toggle('on',n===h)});
+    document.querySelectorAll('#nav a').forEach(function(a){
+      if(a.dataset.v===h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show);
+  show();
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
